@@ -1,5 +1,6 @@
 import { useDropzone } from "react-dropzone"
 import CircularProgressBar from "./ui/circular-progress-bar";
+import { motion } from "motion/react";
 
 export function UploadWidgetDropzone() {
 
@@ -17,7 +18,12 @@ export function UploadWidgetDropzone() {
         }
     })
     return (
-        <div className="px-3 flex flex-col gap-3">
+        <motion.div 
+            className="px-3 flex flex-col gap-3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+        >
 
             <div 
                 data-dragging={isDragActive}
@@ -39,6 +45,6 @@ export function UploadWidgetDropzone() {
 
                 <span className="text-xxs text-zinc-400">Suportado apenas arquivos JPEG e PNG</span>
             </div>
-        </div>
+        </motion.div>
     )
 }
