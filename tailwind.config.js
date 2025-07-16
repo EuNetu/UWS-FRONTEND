@@ -11,6 +11,9 @@ export default {
       opacity: {
         2: 0.02,
       },
+      fontSize: {
+        xxs: '0.625rem',
+      },
       fontFamily: {
         sans: ['Inter', ...theme.fontFamily.sans],
       },

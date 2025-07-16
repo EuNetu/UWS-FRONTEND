@@ -1,6 +1,9 @@
 import { useDropzone } from "react-dropzone"
 
 export function UploadWidgetDropzone() {
+
+    
+
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
         multiple: true,
         accept: {
