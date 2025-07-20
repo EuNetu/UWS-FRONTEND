@@ -1,18 +1,23 @@
 import axios from 'axios';
+import type { AxiosRequestConfig } from 'axios';
 
 interface UploadFileToStorageParams {
-    file: File
+    file: File;
 }
 
-export async function uploadFileToStorage({ file }: UploadFileToStorageParams) {
-    const data = new FormData()
-    data.append('file', file)
+interface UploadFileToStorageOpts {
+    signal?: AbortSignal;
+}
 
-    const reponse = await axios.post<{url: string}>('http://localhost:3333/uploads', data, {
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    })
+export async function uploadFileToStorage({ file }: UploadFileToStorageParams, opts?: UploadFileToStorageOpts) {
+    const data = new FormData();
+    data.append('file', file);
 
-    return { url: reponse.data.url }
+    const config: AxiosRequestConfig = {
+        signal: opts?.signal,
+    };
+
+    const response = await axios.post<{ url: string }>('http://localhost:3333/uploads', data, config);
+
+    return { url: response.data.url };
 }

@@ -9,16 +9,16 @@ export function UploadWidgetUploadList() {
             <span className="text-xs font-medium">
                 Arquivos carregados{' '}
                 <span className="text-zinc-400">(3)</span>
-            </span> 
+            </span>
             {isUploadListEmpty ? (
                 <span className="text-xs text-zinc-400">Nenhum arquivo carregado</span>
             ) : (
-                    <div className = "flex flex-col gap-2">
-                        {Array.from(uploads.entries()).map(([uploadId, upload]) => {
-                            return <UploadWidgetUploadItem key={uploadId} upload={upload} />
-                            }
-                        )}
-                    </div>
+                <div className="flex flex-col gap-2">
+                    {Array.from(uploads.entries()).map(([uploadId, upload]) => {
+                        return <UploadWidgetUploadItem key={uploadId} upload={upload} uploadId={uploadId} />
+                    }
+                    )}
+                </div>
             )}
         </div>
     )
