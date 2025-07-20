@@ -8,7 +8,7 @@ export function UploadWidgetUploadList() {
         <div className="px-3 flex flex-col gap-3">
             <span className="text-xs font-medium">
                 Arquivos carregados{' '}
-                <span className="text-zinc-400">(3)</span>
+                <span className="text-zinc-400">({uploads.size})</span>
             </span>
             {isUploadListEmpty ? (
                 <span className="text-xs text-zinc-400">Nenhum arquivo carregado</span>
